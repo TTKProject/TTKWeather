@@ -3,7 +3,7 @@
 
 /* =================================================
  * This file is part of the TTK Weather project
- * Copyright (C) 2015 - 2019 Greedysky Studio
+ * Copyright (C) 2015 - 2020 Greedysky Studio
 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ const QString PM2P5_QUERY_URL  = "WHF6dU85RlRDUmpTanltT3h1elZzQ2ZSU2lnK0hIeC9LYV
 ///Attention: the interface can be accessed only 750 times per hour
 ///////////////////////////////////////
 ///
-#ifdef WEATHER_QT_5
+#ifdef TTK_GREATER_NEW
 #   include <QJsonParseError>
 #   include <QJsonDocument>
 #   include <QJsonObject>

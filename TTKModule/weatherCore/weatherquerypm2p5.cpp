@@ -31,7 +31,7 @@ void WeatherQuerPM2P5::searchFinshed()
     if(m_reply->error() == QNetworkReply::NoError)
     {
         QByteArray bytes = m_reply->readAll();///Get all the data obtained by request
-#ifdef WEATHER_QT_5
+#ifdef TTK_GREATER_NEW
         QJsonParseError jsonError;
         QJsonDocument parseDoucment = QJsonDocument::fromJson(bytes, &jsonError);
         ///Put the data into Json
@@ -43,8 +43,7 @@ void WeatherQuerPM2P5::searchFinshed()
         }
 
         QJsonObject jsonObject = parseDoucment.object();
-        if(jsonObject.contains("success") &&
-           jsonObject.take("success").toString() == "1")
+        if(jsonObject.contains("success") && jsonObject.take("success").toString() == "1")
         {
             jsonObject = jsonObject.value("result").toObject();
 
@@ -57,7 +56,7 @@ void WeatherQuerPM2P5::searchFinshed()
         }
         else
         {
-            M_LOGGER_ERROR(QString("Error: %1").arg(jsonObject.take("msg").toString()));
+            TTK_LOGGER_ERROR(QString("Error: %1").arg(jsonObject.take("msg").toString()));
             emit repliedPM2P5Finished(pm2p5List);
             return;
         }
@@ -81,7 +80,7 @@ void WeatherQuerPM2P5::searchFinshed()
         }
         else
         {
-            M_LOGGER_ERROR(QString("Error: %1").arg(sc.property("msg").toString()));
+            TTK_LOGGER_ERROR(QString("Error: %1").arg(sc.property("msg").toString()));
             emit repliedPM2P5Finished(pm2p5List);
             return;
         }

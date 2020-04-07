@@ -3,7 +3,7 @@
 
 /* =================================================
  * This file is part of the TTK Weather project
- * Copyright (C) 2015 - 2019 Greedysky Studio
+ * Copyright (C) 2015 - 2020 Greedysky Studio
 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@ public:
     /*!
      * Get city code by name.
      */
-    const WeatherObject::MStriantMap& getCityCodes() const;
+    const WeatherObject::TTKVariantMap& getCityCodes() const;
     /*!
      * Get all cities code.
      */
@@ -54,7 +54,7 @@ public slots:
      */
 
 protected:
-    WeatherObject::MStriantMap m_cityMap;
+    WeatherObject::TTKVariantMap m_cityMap;
 
 };
 
