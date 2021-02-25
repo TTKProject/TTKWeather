@@ -1,6 +1,6 @@
 # =================================================
 # * This file is part of the TTK Weather project
-# * Copyright (C) 2015 - 2020 Greedysky Studio
+# * Copyright (C) 2015 - 2021 Greedysky Studio
 #
 # * This program is free software; you can redistribute it and/or modify
 # * it under the terms of the GNU General Public License as published by
@@ -16,16 +16,17 @@
 # * with this program; If not, see <http://www.gnu.org/licenses/>.
 # =================================================
 
-win32:TARGET = ../../bin/TTKCore
-unix:TARGET = ../lib/TTKCore
 TEMPLATE = lib
 
 CONFIG += TTK_BUILD_LIB
 
 INCLUDEPATH += $$PWD
 
-include(../TTKWeather.pri)
-unix:VERSION += $$TTKWeather
+include($$PWD/../TTKWeather.pri)
+DESTDIR = $$OUT_PWD/../bin
+TARGET = TTKCore
+
+CONFIG += plugin lib
 
 SOURCES += \
     weatherapplication.cpp 

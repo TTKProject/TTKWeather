@@ -1,6 +1,6 @@
 # =================================================
 # * This file is part of the TTK Weather project
-# * Copyright (C) 2015 - 2020 Greedysky Studio
+# * Copyright (C) 2015 - 2021 Greedysky Studio
 #
 # * This program is free software; you can redistribute it and/or modify
 # * it under the terms of the GNU General Public License as published by
@@ -17,14 +17,11 @@
 # =================================================
 
 TEMPLATE = app
-win32{
-  TARGET = ../../bin/TTKWeather
-  LIBS += -L../bin -lTTKCore
-}
-unix{
-  TARGET = ../lib/TTKWeather
-  LIBS += -L../lib -lTTKCore
-}
+
+TARGET = TTKWeather
+
+DESTDIR = $$OUT_PWD/../bin
+LIBS += -L$$DESTDIR -lTTKCore
 
 contains(CONFIG, TTK_BUILD_LIB){
     CONFIG -= TTK_BUILD_LIB
@@ -38,7 +35,6 @@ win32:msvc{
 INCLUDEPATH += ../TTKModule
 
 include(../TTKWeather.pri)
-unix:VERSION += $$TTKWeather
 
 !contains(CONFIG, TTK_NO_MSVC_LINK_NEED){
 HEADERS  += \
